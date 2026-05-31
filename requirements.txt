@@ -1,1 +1,10 @@
-
+supervision
+ultralytics
+trackers
+opencv-python
+numpy
+matplotlib
+pandas
+tqdm
+jupyter
+ipykernel
