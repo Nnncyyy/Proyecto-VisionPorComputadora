@@ -7,8 +7,8 @@ Creación de un proyecto para la Copa FutBotMX con la rama de Visión por Comput
 **Propuesta de Proyecto:** Sistema de análisis táctico basado en SAM 3 que segmenta, rastrea e interpreta el comportamiento dinámico de un partido de fútbol robótico mediante emociones tácticas y visualización histórica de trayectorias.
 
 **Principales características:** 
-- interpreta emociones tácticas,
-- y visualiza ecos históricos del partido mediante Ghost Replay.
+- Interpreta emociones tácticas,
+- Y visualiza ecos históricos del partido mediante Ghost Replay.
 
 ## Arquitectura Inicial
 El pipeline de procesamiento se compone de las siguientes etapas:
