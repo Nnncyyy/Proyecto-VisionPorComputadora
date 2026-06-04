@@ -20,4 +20,7 @@ Para cada nueva entrada, utilizar el siguiente formato:
   * **Descripción:** Al ejecutar inferencia en un entorno local sin aceleración de GPU dedicada (usando un procesador AMD Ryzen), el modelo SAM 3 toma un tiempo considerable tanto en la carga en memoria como en la generación de máscaras.
   * **Solución / Impacto:** Se debe forzar el parámetro `device="cpu"` en la inicialización del modelo para evitar crashes. La carga inicial de SAM 3 toma alrededor de 30 segundos ejecutándose en CPU.
 
+* **[Hallazgo] - Falsos positivos con prompts de texto**
+  * **Contexto:** Issue M1-03 (Pruebas de prompts de texto con SAM 3).
+  * **Descripción:** Al intentar aislar elementos usando descripciones generales en inglés (como "ball" o "robot"), SAM 3 logra segmentarlos, con prompts como "player" suele incluir tambien a las personas además de los robots.
 ---
