@@ -28,4 +28,12 @@ Para cada nueva entrada, utilizar el siguiente formato:
   * **Contexto:** Issue M1-04 (Pruebas de Bounding Boxes combinadas con YOLOv8n).
   * **Descripción:** Al intentar usar YOLOv8n sin re-entrenar para obtener las coordenadas de un robot, el modelo detectó a una persona del público en el fondo. Esto ocurre porque en el dataset COCO por defecto de YOLO, la clase 0 corresponde a "person". SAM 3 segmentó a la persona perfectamente usando esa caja.
   * **Solución / Impacto:** La prueba validó que el método de *Bounding Box* es el más preciso para SAM 3. Sin embargo, nos advierte que para el Milestone 2 (Tracking), no podremos usar YOLOv8n directamente desde la caja. Tendremos que usar un detector basado en color (HSV) para los robots y el balón, o entrenar un modelo YOLO personalizado.
+
+* **[Decisión] - Implementación estricta del Baseline de Segmentación por Texto**
+  * **Contexto:** Issue M1-05 (Generar segmentación baseline).
+  * **Descripción:** Se construyó el módulo reutilizable `src/segmentation.py` exportando las funciones requeridas para segmentar por texto (`load_text_prompt_predictor` y `segment_with_text_prompt`).
+  * **Solución / Impacto:** Aunque en el Issue M1-04 determinamos que las *Bounding Boxes* ofrecen mayor precisión técnica para nuestro proyecto, se establece este código como nuestro *Baseline* (Punto de referencia) para cumplir con el entregable inicial. Para el Milestone 2, este módulo será escalado agregando una función `segment_with_bbox` que consumirá las cajas fuertes entregadas por nuestro sistema de Tracking o detección por color.
+
 ---
+
+## Milestone 2
