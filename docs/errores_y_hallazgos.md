@@ -23,4 +23,9 @@ Para cada nueva entrada, utilizar el siguiente formato:
 * **[Hallazgo] - Falsos positivos con prompts de texto**
   * **Contexto:** Issue M1-03 (Pruebas de prompts de texto con SAM 3).
   * **Descripción:** Al intentar aislar elementos usando descripciones generales en inglés (como "ball" o "robot"), SAM 3 logra segmentarlos, con prompts como "player" suele incluir tambien a las personas además de los robots.
+
+* **[Hallazgo] - El modelo base de YOLO detecta humanos, no robots**
+  * **Contexto:** Issue M1-04 (Pruebas de Bounding Boxes combinadas con YOLOv8n).
+  * **Descripción:** Al intentar usar YOLOv8n sin re-entrenar para obtener las coordenadas de un robot, el modelo detectó a una persona del público en el fondo. Esto ocurre porque en el dataset COCO por defecto de YOLO, la clase 0 corresponde a "person". SAM 3 segmentó a la persona perfectamente usando esa caja.
+  * **Solución / Impacto:** La prueba validó que el método de *Bounding Box* es el más preciso para SAM 3. Sin embargo, nos advierte que para el Milestone 2 (Tracking), no podremos usar YOLOv8n directamente desde la caja. Tendremos que usar un detector basado en color (HSV) para los robots y el balón, o entrenar un modelo YOLO personalizado.
 ---
