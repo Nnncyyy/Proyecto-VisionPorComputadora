@@ -17,6 +17,28 @@ El pipeline de procesamiento se compone de las siguientes etapas:
 2. **Tracking (Rastreo):** Implementación de ByteTrack para asignar y mantener identificadores únicos a cada elemento a través del tiempo.
 3. **Análisis y Visualización:** Procesamiento de trayectorias para dibujar mapas de calor, Ghost Replays y registrar eventos tácticos en pantalla.
 
+## Avance M1 — Segmentación baseline
+
+En este milestone probamos el modelo SAM 3 sobre frames representativos de partidos de fútbol robótico.
+
+### Objetivos Completados
+- Extracción de frames de prueba resguardando el peso del repositorio.
+- Pruebas cruzadas de prompts (texto, punto, bounding box).
+- Generación de máscaras baseline mediante un módulo reutilizable.
+- Documentación técnica de la respuesta del modelo en entornos controlados.
+
+### Evidencia Visual
+![Baseline SAM 3](docs/assets/m1/baseline/baseline_frame_0050.jpg)
+![Baseline SAM 3](docs/assets/m1/baseline/baseline_frame_0100.jpg)
+
+### Hallazgos Clave
+- **El Balón:** Fue segmentado exitosamente sin requerir preprocesamiento complejo, lo cual es una gran ventaja para la extracción de métricas.
+- **Ambigüedad Semántica:** El modelo asocia "player" tanto a los robots como a la audiencia humana.
+- **Limitaciones de Entorno:** El prompt "field" falló en detectar el campo de juego, requiriendo métodos tradicionales (polígonos) para delimitar la cancha.
+- **Decisión para M2:** Abandonaremos la inferencia pura por texto (*Zero-Shot*). El Milestone 2 utilizará segmentación guiada por *Bounding Boxes* conectadas a algoritmos de Tracking.
+
+> *Los detalles técnicos se encuentran en [Bitácora](docs/bitacora.md) y en [Registro de Errores y Hallazgos](docs/errores_y_hallazgos.md).*
+
 ## Requisitos e Instalación
 
 **Hardware sugerido:** El procesamiento local ha sido probado en equipos con procesadores AMD Ryzen 5 5625U con Radeon Graphics. Para modelos como SAM 3, se recomienda un entorno con aceleración o paciencia en el procesamiento por CPU.

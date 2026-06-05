@@ -34,6 +34,25 @@ Para cada nueva entrada, utilizar el siguiente formato:
   * **Descripción:** Se construyó el módulo reutilizable `src/segmentation.py` exportando las funciones requeridas para segmentar por texto (`load_text_prompt_predictor` y `segment_with_text_prompt`).
   * **Solución / Impacto:** Aunque en el Issue M1-04 determinamos que las *Bounding Boxes* ofrecen mayor precisión técnica para nuestro proyecto, se establece este código como nuestro *Baseline* (Punto de referencia) para cumplir con el entregable inicial. Para el Milestone 2, este módulo será escalado agregando una función `segment_with_bbox` que consumirá las cajas fuertes entregadas por nuestro sistema de Tracking o detección por color.
 
+* **[Hallazgo] - Oclusiones y ruido en la detección del balón**
+  * **Contexto:** Issue M1-06 (Reflexión final de segmentación).
+  * **Descripción:** Durante las pruebas, notamos que los robots parcialmente ocultos (oclusiones, donde un robot tapa a otro) son difíciles de segmentar completos con prompts de texto; la máscara suele cortarse. Uno de los elementos que no se pudieron segmentar fue el campo, no pudiendo segmentar el espacio del juego.
+  * **Solución / Impacto:** Para el Milestone 2, el balón requerirá filtrado estricto por color (HSV) para garantizar una Bounding Box precisa. Estas cajas delimitadoras ayudarán a resolver las oclusiones aislando cada elemento antes de pasarlo a SAM 3.
 ---
+
+* **[Hallazgo] - Falla en la segmentación del campo ("field")**
+  * **Contexto:** Issue M1-06 (Reflexión final de segmentación).
+  * **Descripción:** Al intentar segmentar la cancha usando el prompt de texto "field", el modelo SAM 3 falló por completo y no generó ninguna máscara. Es probable que la textura verde uniforme y la iluminación no ofrezcan suficientes contrastes para que el modelo identifique los bordes semánticos de un "campo".
+  * **Solución / Impacto:** Se descarta el uso de prompts de texto para aislar la cancha. Para necesidades futuras (como mapas de calor), deberemos definir el área de juego estáticamente usando polígonos manuales o algoritmos de detección de bordes (Canny) sobre las líneas blancas.
+
+* **[Hallazgo] - Ambigüedad semántica en prompts ("player")**
+  * **Contexto:** Issue M1-06 (Pruebas de precisión).
+  * **Descripción:** Se observó que el modelo es altamente sensible a la semántica del prompt. Al usar la palabra "player", SAM 3 no diferenció entre los robots de la competencia y el público humano en el fondo, segmentando a ambos grupos simultáneamente.
+  * **Solución / Impacto:** Confirma la necesidad de abandonar los prompts genéricos de texto para la etapa de Tracking. Reafirma nuestra decisión de usar *Bounding Boxes* generadas por un detector propio para garantizar que solo se segmenten los robots en la cancha.
+
+* **[Hallazgo Positivo] - Éxito en la detección del balón**
+  * **Contexto:** Issue M1-06 (Pruebas de precisión).
+  * **Descripción:** Contrario a nuestras hipótesis iniciales, el balón fue capturado y segmentado de manera correcta sin presentar problemas graves de confusión con el fondo al usar SAM 3.
+  * **Impacto:** Esto facilita el desarrollo del Milestone 2, ya que podremos confiar en la máscara generada para el balón sin requerir filtros de posprocesamiento tan estrictos.
 
 ## Milestone 2
