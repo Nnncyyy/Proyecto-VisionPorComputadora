@@ -38,11 +38,11 @@ En este milestone probamos el modelo SAM 3 sobre frames representativos de parti
 - **Decisión para M2:** Abandonaremos la inferencia pura por texto (*Zero-Shot*). El Milestone 2 utilizará segmentación guiada por *Bounding Boxes* conectadas a algoritmos de Tracking.
 
 
-## Avance M2 — Tracking funcional
-## Objetivo
+## M2 — Tracking funcional
+### Objetivo
 Rastrear robots y balón a través del video usando las segmentaciones obtenidas con SAM 3 y un tracker basado en ByteTrack.
 
-## Avance M2
+### Avance M2
 En este milestone integramos el procesamiento de video frame por frame con un tracker basado en ByteTrack. El objetivo fue asignar IDs persistentes a robots y balón, guardar trayectorias en CSV y generar una primera visualización con máscaras, cajas, IDs y trails.
 
 ### Resultados
@@ -54,7 +54,7 @@ En este milestone integramos el procesamiento de video frame por frame con un tr
 
 ### Evidencia visual
 ![Tracking sample](docs/runs/segment//image0.jpg)
-
+(Es dinámico y se genera cuando se ejecutar el archivo main_m2)
 
 > *Los detalles técnicos se encuentran en [Bitácora](docs/bitacora.md) y en [Registro de Errores y Hallazgos](docs/errores_y_hallazgos.md).*
 
