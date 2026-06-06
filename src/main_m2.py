@@ -31,8 +31,8 @@ STRIDE = 1
 
 def main():
     # Diagnóstico rápido en caso de fallo
-    print(f"🔍 Buscando modelo en: {MODEL_PATH.resolve()}")
-    print(f"🎬 Buscando video en: {VIDEO_PATH.resolve()}")
+    print(f"Buscando modelo en: {MODEL_PATH.resolve()}")
+    print(f"Buscando video en: {VIDEO_PATH.resolve()}")
 
     if not VIDEO_PATH.exists():
         raise FileNotFoundError(

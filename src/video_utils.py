@@ -83,7 +83,7 @@ def extraer_frames(video_path: str, output_dir: str, num_frames: int = 3, stride
         ruta_guardado = os.path.join(output_dir, nombre_archivo)
         
         cv2.imwrite(ruta_guardado, frame, [cv2.IMWRITE_JPEG_QUALITY, 85])
-        print(f"✅ Frame guardado en: {ruta_guardado}")
+        print(f"Frame guardado en: {ruta_guardado}")
         
         frames_guardados += 1
         
@@ -105,7 +105,7 @@ def guardar_frames_procesados(video_path: str | Path, output_dir: str | Path, nu
     # Crea la carpeta de destino (y sus padres) si no existe
     output_dir.mkdir(parents=True, exist_ok=True)
     
-    print(f"💾 Iniciando extracción nativa en: {output_dir}")
+    print(f"Iniciando extracción nativa en: {output_dir}")
     
     # Usamos tu generador nativo iter_video_frames
     generador = iter_video_frames(video_path, max_frames=num_frames, stride=stride)
@@ -118,7 +118,7 @@ def guardar_frames_procesados(video_path: str | Path, output_dir: str | Path, nu
         
         # Guardamos la imagen con calidad optimizada
         cv2.imwrite(str(ruta_guardado), frame, [cv2.IMWRITE_JPEG_QUALITY, 85])
-        print(f"   ✅ Guardado: {nombre_archivo}")
+        print(f"  Guardado: {nombre_archivo}")
         frames_guardados += 1
         
-    print(f"✨ Proceso terminado. Se guardaron {frames_guardados} frames con éxito.\n")
+    print(f" Proceso terminado. Se guardaron {frames_guardados} frames con éxito.\n")
