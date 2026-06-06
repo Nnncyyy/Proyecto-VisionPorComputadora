@@ -28,8 +28,8 @@ En este milestone probamos el modelo SAM 3 sobre frames representativos de parti
 - Documentación técnica de la respuesta del modelo en entornos controlados.
 
 ### Evidencia Visual
-![Baseline SAM 3](docs/assets/m1/baseline/baseline_frame_0050.jpg)
-![Baseline SAM 3](docs/assets/m1/baseline/baseline_frame_0100.jpg)
+<img src="docs/assets/m1/baseline/baseline_frame_0050.jpg" alt="Baseline SAM 3" width="48%">
+<img src="docs/assets/m1/baseline/baseline_frame_0100.jpg" alt="Baseline SAM 3" width="48%">
 
 ### Hallazgos Clave
 - **El Balón:** Fue segmentado exitosamente sin requerir preprocesamiento complejo, lo cual es una gran ventaja para la extracción de métricas.
@@ -37,7 +37,28 @@ En este milestone probamos el modelo SAM 3 sobre frames representativos de parti
 - **Limitaciones de Entorno:** El prompt "field" falló en detectar el campo de juego, requiriendo métodos tradicionales (polígonos) para delimitar la cancha.
 - **Decisión para M2:** Abandonaremos la inferencia pura por texto (*Zero-Shot*). El Milestone 2 utilizará segmentación guiada por *Bounding Boxes* conectadas a algoritmos de Tracking.
 
+
+## Avance M1 — Segmentación baseline
+## Objetivo
+Rastrear robots y balón a través del video usando las segmentaciones obtenidas con SAM 3 y un tracker basado en ByteTrack.
+
+## Avance M2 — Tracking funcional
+En este milestone integramos el procesamiento de video frame por frame con un tracker basado en ByteTrack. El objetivo fue asignar IDs persistentes a robots y balón, guardar trayectorias en CSV y generar una primera visualización con máscaras, cajas, IDs y trails.
+
+### Resultados
+- Procesamiento frame por frame.
+- Segmentación con SAM 3 usando prompts definidos en M1.
+- Tracking de objetos con IDs.
+- Exportación de trayectorias a CSV.
+- Primer video local anotado.
+
+### Evidencia visual
+![Tracking sample](docs/runs/segment//image0.jpg)
+
+
 > *Los detalles técnicos se encuentran en [Bitácora](docs/bitacora.md) y en [Registro de Errores y Hallazgos](docs/errores_y_hallazgos.md).*
+
+
 
 ## Requisitos e Instalación
 
