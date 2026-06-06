@@ -53,8 +53,8 @@ En este milestone integramos el procesamiento de video frame por frame con un tr
 - Primer video local anotado.
 
 ### Evidencia visual
-![Tracking sample](docs/runs/image0.jpg)
-<img src="">
+
+<img src="https://github.com/Nnncyyy/Proyecto-VisionPorComputadora/blob/m2/runs/segment/predict/image0.jpg?raw=true"  width="48%">
 (Es dinámico y se genera cuando se ejecutar el archivo main_m2)
 
 > *Los detalles técnicos se encuentran en [Bitácora](docs/bitacora.md) y en [Registro de Errores y Hallazgos](docs/errores_y_hallazgos.md).*
