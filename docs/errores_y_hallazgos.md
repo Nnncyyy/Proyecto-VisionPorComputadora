@@ -56,3 +56,18 @@ Para cada nueva entrada, utilizar el siguiente formato:
   * **Impacto:** Esto facilita el desarrollo del Milestone 2, ya que podremos confiar en la máscara generada para el balón sin requerir filtros de posprocesamiento tan estrictos.
 
 ## Milestone 2
+
+* **Error 1: Cambio de ID**
+  * **Problema:**  Un robot cambia de ID después de una oclusión.
+  * **Causa probable:**   El tracker pierde continuidad cuando el robot desaparece parcialmente.
+  * **Posible solución:**  Ajustar prompts, confianza o usar post-procesamiento en M3.
+
+* **Error 2: Pérdida del balón**
+  * **Problema:**  El balón no aparece en algunos frames.
+  * **Causa probable:**  Objeto pequeño, movimiento rápido o baja resolución.
+  * **Posible solución:**  Combinar SAM 3 con filtrado por color o detección HSV en M3.
+
+* **Error 3: Confusión entre robots**
+  * **Problema:**  SAM 3 segmenta varios robots como una sola región o confunde partes del campo.
+  * **Causa probable:**  Robots cercanos, oclusiones o prompt demasiado general.
+  * **Posible solución:**  Probar prompts más específicos o segmentación por puntos/bboxes.
