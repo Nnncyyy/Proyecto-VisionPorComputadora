@@ -20,7 +20,7 @@ from src.export import init_tracks_csv, append_tracks_to_csv
 # --- CONFIGURACIÓN DE RUTAS ABSOLUTAS AUTOMÁTICAS ---
 # Esto evita que el script falle sin importar desde dónde lo ejecutes
 VIDEO_PATH = raiz_proyecto / "data" / "raw" / "videoInstrucciones.mov" # O .mov, asegúrate de la extensión
-MODEL_PATH = raiz_proyecto / "src" / "models" / "sam3.pt"
+MODEL_PATH = raiz_proyecto / "assets" / "sam3.pt"
 
 OUTPUT_VIDEO = raiz_proyecto / "outputs" / "videos" / "m2_tracking_demo.mp4"
 OUTPUT_CSV = raiz_proyecto / "outputs" / "metrics" / "tracks.csv"
