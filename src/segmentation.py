@@ -17,7 +17,7 @@ PROMPTS = [
 ]
 
 
-def load_sam3_text_predictor(model_path: str = "models/sam3.pt", conf: float = 0.25):
+def load_sam3_text_predictor(model_path: str = "assets/sam3.pt", conf: float = 0.25):
     predictor = SAM3SemanticPredictor(
         overrides=dict(
             conf=conf,

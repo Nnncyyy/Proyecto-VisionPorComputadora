@@ -13,6 +13,9 @@ Rastrear robots y balón a través del video usando las segmentaciones obtenidas
 | Fuente | Repositorio oficial Copa FutBotMX |
 | Frames procesados | 100 |
 | Stride | 1 |
+| Uso | Prueba de tracking frame por frame |
+| Salida local | `outputs/videos/m2_tracking_demo.mp4` |
+| CSV local | `outputs/metrics/tracks.csv` |
 
 ## Prompts usados
 
@@ -27,6 +30,12 @@ Rastrear robots y balón a través del video usando las segmentaciones obtenidas
 - Se asignaron IDs a objetos detectados.
 - Se exportaron trayectorias a CSV.
 - Se generó video local con máscaras, cajas, IDs y trails.
+
+## Pipeline M2
+
+```text
+Video → SAM 3 por prompts → sv.Detections → ByteTrack → IDs + CSV + trails
+```
 
 ## Ejucción
 | python -m src.main_m2
