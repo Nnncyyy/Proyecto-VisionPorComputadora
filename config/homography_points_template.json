@@ -1,0 +1,15 @@
+{
+  "image_points": [
+    [100, 100],
+    [700, 100],
+    [750, 500],
+    [80, 500]
+  ],
+  "map_points": [
+    [0, 0],
+    [800, 0],
+    [800, 500],
+    [0, 500]
+  ],
+  "nota": "Reemplaza image_points con las cuatro esquinas reales de la cancha en tu video. El orden debe ser: superior izquierda, superior derecha, inferior derecha, inferior izquierda."
+}

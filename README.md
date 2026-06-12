@@ -83,3 +83,77 @@ En este milestone integramos el procesamiento de video frame por frame con un tr
 ## Integrantes
 - Nancy Ashanti Del Castillo Aguirre
 - Diego Garcia Mendoza
+
+## M3 — HSV, Homografía, Ghost Replay y emociones tácticas
+
+### Objetivo
+Convertir las trayectorias generadas en M2 en una visualización narrativa del partido. En este milestone se agregan clasificación por color mediante HSV, métricas de movimiento, emociones tácticas, eventos simples, Ghost Replay, mapa de calor, homografía opcional y dashboard.
+
+### Componentes de M3
+- **HSV:** clasifica objetos como robot azul, robot rojo, balón naranja o desconocido.
+- **Ghost Replay:** dibuja posiciones pasadas como estelas o ecos del movimiento.
+- **Emociones tácticas:** calcula estados como `CALMA`, `ACTIVO`, `INTENSO`, `TENSION` y `CAOS` con reglas explicables.
+- **Homografía / mapa táctico 2D:** proyecta posiciones a una vista superior de la cancha si se definen puntos manuales.
+- **Eventos simples:** detecta posibles colisiones, tiros o cambios de dominio.
+- **Dashboard:** muestra intensidad, tensión, caos, dominio y evento actual sobre el video.
+
+### Ejecutar M3 sin homografía
+
+Primero ejecuta M2 para generar:
+
+```text
+outputs/metrics/tracks.csv
+```
+
+Después corre:
+
+```bash
+python src/main_m3.py \
+  --tracks outputs/metrics/tracks.csv \
+  --video data/raw/videoInstrucciones.mov \
+  --max-frames 180
+```
+
+### Ejecutar M3 con homografía
+
+Copia la plantilla:
+
+```text
+config/homography_points_template.json
+```
+
+y guárdala como:
+
+```text
+config/homography_points.json
+```
+
+Edita `image_points` con las cuatro esquinas reales de la cancha en el video. Luego ejecuta:
+
+```bash
+python src/main_m3.py \
+  --tracks outputs/metrics/tracks.csv \
+  --video data/raw/videoInstrucciones.mov \
+  --homography-points config/homography_points.json \
+  --max-frames 180
+```
+
+### Salidas locales esperadas
+
+```text
+outputs/metrics/tracks_with_color.csv
+outputs/metrics/tracks_projected.csv
+outputs/metrics/emotions.csv
+outputs/metrics/events.csv
+outputs/figures/m3_heatmap_activity.jpg
+outputs/figures/m3_tactical_map_sample.jpg
+outputs/videos/m3_narrative_demo.mp4
+```
+
+Estos archivos se generan localmente y no se suben completos al repositorio por tamaño. Solo se subirán evidencias ligeras en `docs/assets/m3/`.
+
+### Limitaciones actuales
+- HSV puede fallar con sombras, reflejos o iluminación variable.
+- Las emociones tácticas son reglas simples, no emociones humanas reales.
+- Los eventos son aproximados.
+- La homografía depende de puntos manuales bien elegidos.

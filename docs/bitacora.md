@@ -17,3 +17,19 @@
   * (M1-05) Creación del pipeline base estructurado en `src/segmentation.py`.
   * (M1-06 y M1-07) Registro de hallazgos finales: imposibilidad de segmentar la cancha con "field", ambigüedad del término "player" y éxito total con el balón.
 * **Estado:** Completado.
+
+---
+
+## Milestone 2: Tracking funcional
+
+* **Objetivo:** Rastrear robots y balón a través del video mediante IDs persistentes y trayectorias exportables.
+* **Acciones realizadas:**
+  * (M2-01) Se creó un pipeline de video frame por frame usando `src/main_m2.py`.
+  * (M2-02) Se integró `FutbotTracker` como wrapper de ByteTrack en `src/tracking.py`.
+  * (M2-03) Se creó exportación de trayectorias a CSV mediante `src/export.py`.
+  * (M2-04) Se generó visualización con máscaras, cajas, IDs y trails usando `src/visualization.py`.
+  * (M2-05) Se documentaron errores y hallazgos en `docs/m2_tracking_hallazgos.md` y `docs/errores_y_hallazgos.md`.
+  * Se agregó el notebook `notebooks/06_tracking_basico.ipynb` para validar el tracking de forma reproducible.
+  * Se agregó evidencia ligera en `docs/assets/m2/`.
+
+* **Estado:** En cierre / validado con evidencia ligera.
