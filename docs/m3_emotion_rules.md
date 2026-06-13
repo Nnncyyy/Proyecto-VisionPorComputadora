@@ -21,6 +21,46 @@ Estas emociones no representan emociones humanas reales. Son interpretaciones t�
 | TENSION | Balón cerca de portería |
 | CAOS | Muchos robots alrededor del balón |
 
+Colores emocionales
+
+Se definieron colores visuales para reforzar la narrativa:
+
+CALMA → azul
+ACTIVO → amarillo
+TENSION → naranja
+CAOS → rojo
+MOMENTO CRÍTICO → rojo / morado
+
+Estos colores se aplican en trails, dashboard y visualización narrativa.
+
+Memoria emocional
+
+La longitud del Ghost Replay cambia según el estado táctico:
+
+CALMA → memoria corta
+ACTIVO → memoria media
+TENSION → memoria media/larga
+CAOS → memoria larga
+
+Esto permite que el espectador perciba visualmente la intensidad del momento.
+
+Eventos simples
+
+Los eventos detectados son aproximados y se basan en reglas:
+
+posible_tiro
+posible_colision
+momento_critico
+cambio_de_dominio
+
+No se consideran eventos oficiales del partido, sino indicadores visuales para enriquecer la narrativa.
+
+Limitaciones
+
+El motor emocional depende directamente de la calidad del tracking. Si el tracking pierde objetos, cambia IDs o detecta falsos positivos, las métricas pueden variar.
+
+También depende de la homografía y la clasificación HSV, por lo que algunos valores como dominio pueden ser incompletos.
+
 ## Archivos generados
 
 ```text
