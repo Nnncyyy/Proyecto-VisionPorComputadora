@@ -38,7 +38,6 @@ Para cada nueva entrada, utilizar el siguiente formato:
   * **Contexto:** Issue M1-06 (Reflexión final de segmentación).
   * **Descripción:** Durante las pruebas, notamos que los robots parcialmente ocultos (oclusiones, donde un robot tapa a otro) son difíciles de segmentar completos con prompts de texto; la máscara suele cortarse. Uno de los elementos que no se pudieron segmentar fue el campo, no pudiendo segmentar el espacio del juego.
   * **Solución / Impacto:** Para el Milestone 2, el balón requerirá filtrado estricto por color (HSV) para garantizar una Bounding Box precisa. Estas cajas delimitadoras ayudarán a resolver las oclusiones aislando cada elemento antes de pasarlo a SAM 3.
----
 
 * **[Hallazgo] - Falla en la segmentación del campo ("field")**
   * **Contexto:** Issue M1-06 (Reflexión final de segmentación).
@@ -59,6 +58,20 @@ Para cada nueva entrada, utilizar el siguiente formato:
 
 ## Milestone 2:
 
+* **Error 1: Cambio de ID**
+  * **Problema:**  Un robot cambia de ID después de una oclusión.
+  * **Causa probable:**   El tracker pierde continuidad cuando el robot desaparece parcialmente.
+  * **Posible solución:**  Ajustar prompts, confianza o usar post-procesamiento en M3.
+
+* **Error 2: Pérdida del balón**
+  * **Problema:**  El balón no aparece en algunos frames.
+  * **Causa probable:**  Objeto pequeño, movimiento rápido o baja resolución.
+  * **Posible solución:**  Combinar SAM 3 con filtrado por color o detección HSV en M3.
+
+* **Error 3: Confusión entre robots**
+  * **Problema:**  SAM 3 segmenta varios robots como una sola región o confunde partes del campo.
+  * **Causa probable:**  Robots cercanos, oclusiones o prompt demasiado general.
+  * **Posible solución:**  Probar prompts más específicos o segmentación por puntos/bboxes.
 
 ---
 
@@ -126,3 +139,4 @@ Para cada nueva entrada, utilizar el siguiente formato:
   * **Descripción:** Si el tracking pierde objetos, cambia IDs o genera falsos positivos, las emociones, eventos, Ghost Replay y mapa táctico también se ven afectados.
   * **Causa probable:** El M3 utiliza `tracks.csv` como entrada principal, por lo que cualquier error del M2 se propaga.
   * **Solución / Impacto:** Se documentó esta dependencia y se mantuvieron las visualizaciones como aproximaciones interpretativas, no como mediciones perfectas.
+

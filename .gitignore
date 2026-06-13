@@ -55,3 +55,19 @@ Thumbs.db
 
 # VS Code
 .vscode/
+
+# Data local
+data/raw/*
+!data/raw/.gitkeep
+
+# Assets
+assets/*
+!assets/.gitkeep
+
+# Runs generados por Ultralytics
+runs/
+notebooks/runs/
+
+# Evidencia ligera para documentación
+!docs/assets/
+!docs/assets/**
