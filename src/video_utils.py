@@ -33,7 +33,7 @@ def extraer_frames(video_path: str, output_dir: str, num_frames: int = 3, stride
         
         # Guardar la imagen optimizada para que sea ligera
         cv2.imwrite(ruta_guardado, frame, [cv2.IMWRITE_JPEG_QUALITY, 85])
-        print(f"✅ Frame guardado en: {ruta_guardado}")
+        print(f"Frame guardado en: {ruta_guardado}")
         
         frames_guardados += 1
         
