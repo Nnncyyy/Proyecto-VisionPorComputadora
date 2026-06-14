@@ -69,3 +69,33 @@
   * Dashboard narrativo en `docs/assets/m3/dashboard/dashboard_sample.jpg`.
   * Visualización narrativa final en `docs/assets/m3/narrative/m3_narrative_sample.png`.
 * **Estado:** Completado como primera versión funcional. El M3 logra transformar las trayectorias del M2 en una visualización narrativa con memoria visual, emociones tácticas, eventos simples y mapa táctico 2D.
+
+---
+
+## Milestone 4: Entrega final y reproducibilidad
+
+* **Objetivo:** Preparar el proyecto para entrega final, asegurando que el repositorio pueda instalarse, verificarse y ejecutarse desde cero de forma clara.
+
+* **Acciones realizadas:**
+  * (M3-02) Integración de la clasificación HSV al CSV de trayectorias, agregando columnas como `team`, `color` y `color_score`.
+
+  * (M4-01) Crear script principal reproducible
+    * Se creó el script `src/run_final_demo.py` para ejecutar el demo final del proyecto desde un solo comando.
+    * El script valida la existencia de archivos necesarios como el video original, el archivo `tracks.csv` generado en M2 y el archivo de puntos de homografía.
+    * El script ejecuta internamente `src/main_m3.py` para generar la visualización narrativa final.
+    * Se agregó soporte para ejecutar el demo con o sin homografía, dependiendo de si existe `config/homography_points.json`.
+
+  * (M4-02) — Revisar instalación y reproducción desde cero**
+    * Se revisó el archivo `requirements.txt` para incluir las dependencias principales del proyecto.
+    * Se creó el script `src/check_installation.py` para verificar que las librerías principales puedan importarse correctamente.
+    * Se probó la instalación del proyecto desde cero siguiendo los pasos documentados.
+    * Se verificó que el pipeline pueda reproducirse utilizando los archivos necesarios en las rutas esperadas.
+    * Se documentó el proceso de instalación y ejecución en `docs/m4_reproducibilidad.md`.
+
+* **Archivos generados o modificados:**
+
+  * `src/run_final_demo.py`
+  * `src/check_installation.py`
+  * `requirements.txt`
+  * `docs/m4_reproducibilidad.md`
+  * `README.md`

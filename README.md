@@ -29,8 +29,9 @@ Objetivo: Creación de un proyecto para la Copa FutBotMX con la rama de Visión 
 
 3. Descarga el modelo sam3.pt desde HuggingFace y colócalo en la carpeta assets/ (nota: este archivo está ignorado en Git por su tamaño).
 
-> **Nota:** El modelo `sam3.pt` debe descargarse desde Hugging Face y colocarse en la carpeta `assets/`, ya que ha sido excluido de GitHub mediante el archivo `.gitignore` debido a su gran tamaño.
+4. Descarga el video usado para el proyecto, que puede ser descargado desde el siguiente link `https://drive.google.com/file/d/1-39yAydXRA_O4dOj6KW_NeLdwjAcXPsN/view?usp=drive_link` y colócalo en la carpeta data/raw/ y renombralo con el nombre `videoInstrucciones.mov`, de esta manera debe quedar asi: `data/raw/videoInstrucciones.mov`
 
+> **Nota:** El modelo `sam3.pt` debe descargarse desde Hugging Face y colocarse en la carpeta `assets/`, ya que ha sido excluido de GitHub mediante el archivo `.gitignore` debido a su gran tamaño.
 
 ## Integrantes
 - Nancy Ashanti Del Castillo Aguirre
@@ -329,3 +330,63 @@ python src/main_m3.py --tracks outputs/metrics/tracks.csv --video data/raw/video
 El M3 queda completado como una primera versión funcional de visualización narrativa. La implementación demuestra que es posible convertir tracking de robots y balón en una experiencia visual con memoria, emociones tácticas, eventos y mapa táctico 2D.
 
 ---
+
+## Milestone 4 — Entrega final y reproducibilidad
+
+En el Milestone 4 se preparó el proyecto para su entrega final. Esta etapa no agrega nuevos módulos de análisis, sino que consolida el trabajo realizado en M1, M2 y M3 mediante reproducibilidad, documentación, validación del entorno y preparación de entregables.
+
+### M4-01 — Script principal reproducible
+
+Se agregó el script:
+
+```bash
+python src/run_final_demo.py
+```
+
+Este script permite ejecutar el demo final del proyecto de forma más sencilla. Antes de ejecutar la visualización narrativa, valida que existan los archivos necesarios:
+
+```text
+data/raw/videoInstrucciones.mov
+outputs/metrics/tracks.csv
+config/homography_points.json
+```
+
+Si el archivo de homografía existe, el demo se ejecuta con mapa táctico 2D. Si no existe, el script puede ejecutarse sin homografía.
+
+El resultado esperado es:
+
+```text
+outputs/videos/m3_narrative_demo.mp4
+```
+
+### M4-02 — Instalación y reproducción desde cero
+
+Para verificar que el entorno tenga las dependencias necesarias, se agregó el script:
+
+```bash
+python src/check_installation.py
+```
+
+Este script revisa la importación de librerías principales como:
+
+```text
+OpenCV
+NumPy
+pandas
+Matplotlib
+tqdm
+Supervision
+Ultralytics
+```
+
+La instalación del proyecto se realiza con:
+
+```bash
+pip install -r requirements.txt
+```
+
+También se documentó el proceso completo en:
+
+```text
+docs/m4_reproducibilidad.md
+```

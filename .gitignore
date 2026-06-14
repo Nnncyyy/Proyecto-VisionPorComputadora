@@ -32,7 +32,6 @@ data/raw/*
 data/processed/*
 outputs/frames/*
 outputs/videos/*
-outputs/metrics/*
 outputs/figures/*
 
 # Pero conservar estructura de carpetas
