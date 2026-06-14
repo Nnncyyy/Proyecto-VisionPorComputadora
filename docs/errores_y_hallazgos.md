@@ -56,22 +56,25 @@ Para cada nueva entrada, utilizar el siguiente formato:
 
 ---
 
-## Milestone 2:
+## Milestone 2: Tracking Funcional
 
-* **Error 1: Cambio de ID**
-  * **Problema:**  Un robot cambia de ID después de una oclusión.
-  * **Causa probable:**   El tracker pierde continuidad cuando el robot desaparece parcialmente.
-  * **Posible solución:**  Ajustar prompts, confianza o usar post-procesamiento en M3.
+* **[Error] - Cambio de ID después de una oclusión**
+  * **Contexto:** Milestone 2 (Tracking de robots y generación de trayectorias).
+  * **Descripción:** Durante el procesamiento del video, se observó que un robot puede cambiar de `tracker_id` después de pasar por una oclusión parcial o temporal. Esto ocurre cuando el robot desaparece brevemente detrás de otro robot, del balón o de una zona con poca visibilidad.
+  * **Causa probable:** El tracker pierde continuidad cuando el objeto no es detectado durante algunos frames. Al reaparecer, el sistema lo interpreta como una nueva instancia y le asigna un ID diferente.
+  * **Solución / Impacto:** Este error afecta directamente la continuidad de las trayectorias, ya que un mismo robot puede quedar dividido en dos recorridos distintos. Para el Milestone 3, será necesario aplicar post-procesamiento sobre las trayectorias, ajustar umbrales de confianza o usar reglas de proximidad temporal y espacial para recuperar IDs después de oclusiones.
 
-* **Error 2: Pérdida del balón**
-  * **Problema:**  El balón no aparece en algunos frames.
-  * **Causa probable:**  Objeto pequeño, movimiento rápido o baja resolución.
-  * **Posible solución:**  Combinar SAM 3 con filtrado por color o detección HSV en M3.
+* **[Error] - Pérdida temporal del balón en algunos frames**
+  * **Contexto:** Milestone 2 (Tracking del balón y análisis de trayectorias).
+  * **Descripción:** En algunos frames, el balón no aparece detectado o segmentado correctamente. La pérdida no ocurre durante todo el video, sino de forma intermitente, especialmente cuando el balón se mueve rápido o aparece muy pequeño en la imagen.
+  * **Causa probable:** El balón es un objeto pequeño, con movimiento rápido y poca área visible en comparación con los robots. Además, la baja resolución, el desenfoque por movimiento o la similitud de color con partes del campo pueden dificultar su segmentación constante.
+  * **Solución / Impacto:** La pérdida del balón limita el análisis de posesión, pases, tiros y eventos del partido. Para el Milestone 3, se propone complementar SAM 3 con detección por color usando HSV, de forma que el balón pueda localizarse mediante una Bounding Box más estable antes de aplicar segmentación o tracking.
 
-* **Error 3: Confusión entre robots**
-  * **Problema:**  SAM 3 segmenta varios robots como una sola región o confunde partes del campo.
-  * **Causa probable:**  Robots cercanos, oclusiones o prompt demasiado general.
-  * **Posible solución:**  Probar prompts más específicos o segmentación por puntos/bboxes.
+* **[Error] - Confusión entre robots cercanos**
+  * **Contexto:** Milestone 2 (Segmentación y tracking de múltiples robots).
+  * **Descripción:** Se detectó que SAM 3 puede segmentar varios robots cercanos como una sola región o confundir partes del campo con robots. Esto ocurre principalmente cuando los robots están muy juntos, se cruzan entre sí o presentan oclusiones parciales.
+  * **Causa probable:** Los prompts utilizados pueden ser demasiado generales y no siempre separan correctamente instancias individuales. Además, cuando los robots están muy próximos, las máscaras pueden fusionarse o generar regiones ambiguas.
+  * **Solución / Impacto:** Este problema afecta la precisión del tracking y puede provocar trayectorias incorrectas o IDs mal asignados. Para mejorar el resultado, se recomienda probar prompts más específicos, segmentación guiada por puntos o Bounding Boxes, y complementar el pipeline con reglas de filtrado espacial o detección por color para separar mejor cada robot.
 
 ---
 
