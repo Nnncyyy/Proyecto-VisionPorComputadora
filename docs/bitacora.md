@@ -33,3 +33,39 @@
   * Se agregó evidencia ligera en `docs/assets/m2/`.
 
 * **Estado:** En cierre / validado con evidencia ligera.
+
+---
+
+## Milestone 3: HSV, Ghost Replay, emociones tácticas y mapa táctico 2D (Junio 2026)
+
+* **Objetivo:** Convertir el tracking obtenido en M2 en una visualización narrativa del partido, integrando clasificación HSV, Ghost Replay, emociones tácticas, eventos simples, homografía, mapa táctico 2D, mapa de calor y dashboard narrativo.
+* **Acciones realizadas:**
+
+  * (M3-01) Implementación de un detector HSV para clasificar objetos por color dominante, principalmente balón naranja, robots y objetos desconocidos.
+  * (M3-02) Integración de la clasificación HSV al CSV de trayectorias, agregando columnas como `team`, `color` y `color_score`.
+  * (M3-03) Implementación de Ghost Replay básico para mostrar posiciones pasadas de robots y balón mediante estelas visuales.
+  * (M3-04) Implementación de Ghost Replay inteligente, modificando la longitud y apariencia de las trayectorias según movimiento y estado táctico.
+  * (M3-05) Creación de un motor simple de emociones tácticas basado en reglas, usando métricas como intensidad, tensión, caos y dominio.
+  * (M3-06) Aplicación de colores emocionales a los trails y al dashboard según estados como `CALMA`, `TENSION` o `CAOS`.
+  * (M3-07) Implementación de memoria emocional del Ghost Replay, aumentando la longitud de las estelas en momentos de mayor actividad.
+  * (M3-08) Detección de eventos simples del partido, como `posible_tiro`, `posible_colision`, `momento_critico` y `cambio_de_dominio`.
+  * (M3-09) Implementación de homografía para proyectar posiciones del video original hacia un mapa táctico 2D.
+  * (M3-10) Generación de mapa de calor o zonas de actividad a partir de las posiciones acumuladas de los objetos.
+  * (M3-11) Creación de un dashboard narrativo con estado, intensidad, tensión, caos, dominio y evento actual.
+  * (M3-12) Creación de una visualización narrativa combinada que integra video original, Ghost Replay, dashboard y mapa táctico 2D.
+  * (M3-13) Actualización de documentación y evidencias visuales del M3 en `docs/assets/m3/`.
+* **Evidencias generadas:**
+
+  * Evidencia HSV en `docs/assets/m3/hsv/hsv_sample.jpg`.
+  * CSV enriquecido en `docs/assets/m3/csv/sample_tracks_m3_metrics.csv`.
+  * Ghost Replay básico en `docs/assets/m3/ghost_replay/ghost_basic_sample.jpg`.
+  * Ghost Replay inteligente en `docs/assets/m3/ghost_replay/ghost_smart_sample.png`.
+  * Colores emocionales en `docs/assets/m3/emotional_colors/emotional_colors_sample.png`.
+  * Memoria emocional en `docs/assets/m3/emotional_memory/emotional_memory_sample.png`.
+  * Eventos y emociones en `docs/assets/m3/events/`.
+  * Mapa de calor en `docs/assets/m3/heatmap/heatmap_sample.jpg`.
+  * Homografía en `docs/assets/m3/homography/homography_points.png`.
+  * Mapa táctico 2D en `docs/assets/m3/tactical_map/m3_tactical_map_sample.jpg`.
+  * Dashboard narrativo en `docs/assets/m3/dashboard/dashboard_sample.jpg`.
+  * Visualización narrativa final en `docs/assets/m3/narrative/m3_narrative_sample.png`.
+* **Estado:** Completado como primera versión funcional. El M3 logra transformar las trayectorias del M2 en una visualización narrativa con memoria visual, emociones tácticas, eventos simples y mapa táctico 2D.

@@ -1,7 +1,10 @@
 import cv2
 import os
 from pathlib import Path
-import supervision as sv
+try:
+    import supervision as sv
+except ModuleNotFoundError:
+    sv = None
 
 def get_video_info(video_path: str | Path) -> dict:
     """Obtiene información básica del video (ancho, alto, fps, total_frames)."""
@@ -68,6 +71,9 @@ def create_video_writer(output_path: str | Path, fps: float, width: int, height:
 
 def extraer_frames(video_path: str, output_dir: str, num_frames: int = 3, stride: int = 50):
     """Extrae una cantidad específica de frames y los guarda en el disco utilizando Supervision."""
+    if sv is None:
+        raise ModuleNotFoundError("La librería supervision no está instalada. Ejecuta: pip install -r requirements.txt")
+
     os.makedirs(output_dir, exist_ok=True)
     generador = sv.get_video_frames_generator(source_path=video_path, stride=stride)
     
