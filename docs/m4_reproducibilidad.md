@@ -49,6 +49,19 @@ python src/run_final_demo.py
 outputs/videos/m3_narrative_demo.mp4
 ```
 
+## Evidencia de reproducción
+
+Se realizó una prueba de instalación y ejecución desde cero. Como evidencia se guardaron capturas y logs de terminal.
+
+### Verificación del entorno
+
+![Verificación del entorno](assets/m4/reproducibilidad/check_installation_ok.png)
+
+### Verificación de reproducibilidad
+
+![Verificación de reproducibilidad](assets/m4/reproducibilidad/run_final_demo_ok.png)
+
+
 ## Limitaciones
 
 El demo final depende del archivo `tracks.csv` generado en M2. Si no existe, primero debe ejecutarse el pipeline de tracking.
