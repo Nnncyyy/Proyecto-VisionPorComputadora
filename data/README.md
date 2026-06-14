@@ -15,16 +15,17 @@ Para el Milestone M1 se utilizó el siguiente video:
 
 | Campo | Información |
 |---|---|
-| Nombre del archivo local | `video-1080_singular_display.mov` |
+| Nombre del archivo en línea | `video-1080_singular_display.mov` |
+| Nombre del archivo local | `videoInstrucciones.mov` |
 | Fuente | Repositorio oficial de videos Copa FutBotMX |
 | URL de descarga | `https://drive.google.com/file/d/1-39yAydXRA_O4dOj6KW_NeLdwjAcXPsN/view?usp=drive_link` |
 | Fecha de descarga | `2026-05-31` |
 | Uso dentro del proyecto | Extracción de frames para pruebas iniciales de segmentación con SAM 3 |
-| Ubicación local esperada | `data/raw/video-1080_singular_display.mov` |
+| Ubicación local esperada | `data/raw/videoInstrucciones.mov` |
 
 ## Instrucciones de descarga
 
 1. Descargar el video desde la URL oficial indicada arriba.
 2. Crear la carpeta `data/raw/` si no existe.
-3. Colocar el archivo descargado con el siguiente nombre:`video-1080_singular_display.mov`
+3. Colocar el archivo descargado `video-1080_singular_display.mov` y renombrarlo con el siguiente nombre:`videoInstrucciones.mov`
 * **Evidencias:** Los frames ligeros extraídos para comprobación visual se guardan en `docs/assets/m1/frames/`.
