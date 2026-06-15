@@ -494,10 +494,10 @@ docs/m4_reproducibilidad.md
 ### M4-03 — Completar README final
 Este README se completo
 ### M4-04 - Crear video demo máximo 2 minutos
-
+```bash
 Enlace al video demo
    PEGAR_AQUI_LINK_VIDEO_DEMO
-   
+```
 ```bash
 Debe mostrar:
 Video original.
@@ -523,9 +523,10 @@ Dashboard o visualización más atractiva.
 Resultado final.
 Créditos breves del equipo.
 ```
+```
 Enlace al Reel de Instagram
    PEGAR_AQUI_LINK_REEL_INSTAGRAM
-   
+```
 ### M4-06 -- Revisar créditos y licencias
 **Créditos**
 
@@ -564,7 +565,7 @@ Cada dependencia conserva su propia licencia. El uso de SAM 3, Ultralytics, Supe
 - Los videos, modelos y outputs pesados no se suben al repositorio por tamaño.
 
 **Estructura del repositorio**
-
+```text
 Proyecto-VisionPorComputadora/
 ├── assets/
 │   └── sam3.pt                    # No se sube a GitHub
@@ -609,7 +610,7 @@ Proyecto-VisionPorComputadora/
 ├── README.md
 ├── LICENSE
 └── .gitignore
-
+```
 **Archivos que no se suben al repositorio**
 Por tamaño, no se suben:
 - assets/sam3.pt
@@ -628,14 +629,15 @@ Echomain demuestra que es posible convertir un video de fútbol robótico en una
 El sistema no busca reemplazar un análisis deportivo profesional, sino mostrar una aproximación creativa, explicable y reproducible para interpretar visualmente un partido robótico mediante visión por computadora.
 
 **Enlaces finales**
-| Entregable	| Enlace
-------------------------------------------------------------------------
-| Repositorio  | GitHub	https://github.com/Nnncyyy/Proyecto-VisionPorComputadora
-| Video usado	| https://drive.google.com/file/d/1-39yAydXRA_O4dOj6KW_NeLdwjAcXPsN/view?usp=drive_link
-| Video demo	| PEGAR_AQUI_LINK_VIDEO_DEMO
-| Reel de Instagram	| PEGAR_AQUI_LINK_REEL_INSTAGRAM
-| Bitácora	| docs/bitacora.md
-| Errores y hallazgos	| docs/errores_y_hallazgos.md
-| Créditos y licencias	| docs/creditos_licencias.md
-| Reproducibilidad	| docs/m4_reproducibilidad.md
+
+| Entregable | Enlace |
+|---|---|
+| Repositorio GitHub | [Proyecto-VisionPorComputadora](https://github.com/Nnncyyy/Proyecto-VisionPorComputadora) |
+| Video usado | [Video de entrada](https://drive.google.com/file/d/1-39yAydXRA_O4dOj6KW_NeLdwjAcXPsN/view?usp=drive_link) |
+| Video demo | PEGAR_AQUI_LINK_VIDEO_DEMO |
+| Reel de Instagram | PEGAR_AQUI_LINK_REEL_INSTAGRAM |
+| Bitácora | [docs/bitacora.md](docs/bitacora.md) |
+| Errores y hallazgos | [docs/errores_y_hallazgos.md](docs/errores_y_hallazgos.md) |
+| Créditos y licencias | [docs/creditos_licencias.md](docs/creditos_licencias.md) |
+| Reproducibilidad | [docs/m4_reproducibilidad.md](docs/m4_reproducibilidad.md) |
 
